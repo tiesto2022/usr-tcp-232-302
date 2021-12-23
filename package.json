@@ -14,5 +14,8 @@
   "dependencies": {
     "express": "^4.17.2",
     "remote-serial-port-client": "^0.4.0"
+  },
+  "engines": {
+        "node": "v16.13.0"
   }
 }
