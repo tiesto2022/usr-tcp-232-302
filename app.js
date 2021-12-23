@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
+        send('Entro');
         try {
         let net = require('net'),
             host = '192.168.3.247',
