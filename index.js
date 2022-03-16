@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
         console.log('Ingreso');
         try {
         let net = require('net'),
-            host = '192.168.3.247',
+            host = '170.0.10.203',
             port = 20108;
 
         let socket = new net.Socket();
