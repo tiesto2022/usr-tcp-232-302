@@ -1,3 +1,4 @@
+
 const express = require('express');
 const path = require("path");
 const app = express();
@@ -9,49 +10,45 @@ const Net = require('net');
 app.get('/', (req, res) => {
     console.log('Ingreso a la raiz');
     try {
-    const options = {
-        host: '170.0.10.200',
-        port: 20108,
-        timeout: 2000
+        // Numero de puerto y direccion ip del servidor tcp del convertidor
+        const port = 20108;
+        const host = '170.0.10.200';
+
+        // Creo un nuevo cliente TCP
+        const client = new Net.Socket();
+
+        // envio una peticion de conexion al servidor
+
+        client.connect({ port: port, host: host }, function() {
+            // Si no hay error el servidor acepta la peticion y
+            // crea un nuevo socket dedicado para nosotros
+            console.log('TCP Conexión establecida con el servidor.' );
+
+            // El cliente puede recibir data del servidor y leer desde el socket
+            client.on('data', function(weight) {
+                const values = weight.toString().split('=');
+                const peso = values[1].trim();
+                //res.json({ msg: `Data recibida desde el servidor: ${weight.toString()}.` });
+                res.json({ peso });
+                // Solicito el final de la petición después de recibir los datos
+                client.end();
+            });
+
+            client.on('end', function() {
+                console.log('Solicito el final de la conexión');
+            });
+        });
+
+
+        client.on('error', function(err) {
+            console.log(`Error generado: ${err}`);
+        });
+
+
     }
-    const client = net.createConnection(options);
-
-    client.on('connect', () => {
-        console.log('conexion exitosa de la bascula...');
-    });
-
-    client.on('data', (a) => {
-        const values = a.toString().split('=');
-        const peso = values[1].trim();
-        client.pause();
-        client.destroy();
-        res.status(200).json({ peso, error: false });
-    });
-
-    client.on('timeout', (err) => {
-        client.destroy();
-        res.status(400).json({
-            msg: `Tiempo de espera agotado, Verifique que el convertidor no este apagado o la bascula no este ni apagada ni desconectada.`,
-            error: true
-        });
-    });
-
-    client.on('error', (err) => {
-        client.destroy();
-        res.status(400).json({
-            msg: `Convertidor apagado, error al conectar con host: ${ options.host } puerto: ${ options.port }`,
-            error: true
-        });
-    });
-
-}
-catch (e) {
-    res.status(400).json({
-        msg: 'Error al pesar, verifique conexion entre bascula y convertidor',
-        error: true,
-
-    });
-}
+    catch (e) {
+        console.log(`Error al ${ e }`)
+    }
 
 });
 
