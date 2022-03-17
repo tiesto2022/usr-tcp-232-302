@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
         
         
             client.on('error', function(err) {
-                client.end();
+                client.close();
                 res.json({ msg: `Error: ${err}`});
             });
 
