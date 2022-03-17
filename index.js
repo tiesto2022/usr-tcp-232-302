@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
             // Si no hay error el servidor acepta la peticion y
             // crea un nuevo socket dedicado para nosotros
             res.json({ msg: 'TCP Conexión establecida con el servidor.' });
-            
+
             // El cliente puede recibir data del servidor y leer desde el socket
             client.on('data', function(weight) {
                 res.json({ msg: `Data recibida desde el servidor: ${weight.toString()}.` });
@@ -36,20 +36,21 @@ app.get('/', (req, res) => {
             });
 
             client.on('error', function(err) {
-                console.log(`Error al establecer la conexión: ${err}`);
+                client.end();
+                res.json({ msg: `Error: ${err}`});
             });
         });
 
 
     }
     catch (e) {
-        res.json({ msg: `${ e }` });
+        res.json({ msg: `Error al ${ e }` });
     }
 
 });
 
 app.listen(port,  () => {
-    console.log(`Servidor escuchando en http://localhost:${port}`);
+    console.log(`Example app listening at http://localhost:${port}`);
 });
 
 
