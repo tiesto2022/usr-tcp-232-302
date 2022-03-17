@@ -30,13 +30,13 @@ app.get('/', (req, res) => {
             const peso = values[1].trim();
 
             // Solicito el final de la petición después de recibir los datos
-            client.end();
+            client.close();
 
             //res.json({ msg: `Data recibida desde el servidor: ${weight.toString()}.` });
             res.json({ peso });
         });
 
-        client.on('end', function() {
+        client.on('close', function() {
             console.log('Solicito el final de la conexión');
         });
 
