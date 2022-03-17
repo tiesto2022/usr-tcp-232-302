@@ -32,20 +32,19 @@ app.get('/', (req, res) => {
             });
 
             client.on('end', function() {
-                res.json({ msg: 'Solicito el final de la conexión'});
+                console.log('Solicito el final de la conexión');
             });
         });
 
 
         client.on('error', function(err) {
-            client.close();
-            res.json({ msg: `Error: ${err}`});
+            console.log(`Error generado: ${err}`);
         });
 
 
     }
     catch (e) {
-        res.json({ msg: `Error al ${ e }` });
+        console.log(`Error al ${ e }`)
     }
 
 });
@@ -53,5 +52,3 @@ app.get('/', (req, res) => {
 app.listen(port,  () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
-
-
