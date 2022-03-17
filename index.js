@@ -34,12 +34,13 @@ app.get('/', (req, res) => {
             client.on('end', function() {
                 res.json({ msg: 'Solicito el final de la conexión'});
             });
-
+        });
+        
+        
             client.on('error', function(err) {
                 client.end();
                 res.json({ msg: `Error: ${err}`});
             });
-        });
 
 
     }
