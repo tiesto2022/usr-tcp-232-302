@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
         client.connect({ port: port, host: host }, function() {
             // Si no hay error el servidor acepta la peticion y
             // crea un nuevo socket dedicado para nosotros
-            res.json({ msg: 'TCP Conexión establecida con el servidor.' });
+            console.log('TCP Conexión establecida con el servidor.');
 
             // El cliente puede recibir data del servidor y leer desde el socket
             client.on('data', function(weight) {
