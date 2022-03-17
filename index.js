@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const Net = require('net');
 
 app.get('/', (req, res) => {
-    res.json({ message: 'OK' });
+    console.log('Ingreso a la raiz');
     try {
         // Numero de puerto y direccion ip del servidor tcp del convertidor
         const port = 20108;
@@ -35,12 +35,12 @@ app.get('/', (req, res) => {
                 res.json({ msg: 'Solicito el final de la conexión'});
             });
         });
-        
-        
-            client.on('error', function(err) {
-                client.close();
-                res.json({ msg: `Error: ${err}`});
-            });
+
+
+        client.on('error', function(err) {
+            client.close();
+            res.json({ msg: `Error: ${err}`});
+        });
 
 
     }
