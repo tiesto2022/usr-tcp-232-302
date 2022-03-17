@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     const options = {
         host: '170.0.10.200',
         port: 20108,
-        timeout: 800
+        timeout: 2000
     }
     const client = net.createConnection(options);
 
