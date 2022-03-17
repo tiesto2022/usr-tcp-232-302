@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     try {
         // Numero de puerto y direccion ip del servidor tcp del convertidor
         const port = 20108;
-        const host = '170.0.10.203';
+        const host = '170.0.10.200';
 
         // Creo un nuevo cliente TCP
         const client = new Net.Socket();
