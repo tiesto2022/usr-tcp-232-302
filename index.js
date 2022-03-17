@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 // Modulo incluido en nodejs
 const Net = require('net');
 
-pp.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send('OK');
     try {
         // Numero de puerto y direccion ip del servidor tcp del convertidor
