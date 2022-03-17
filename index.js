@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const Net = require('net');
 
 app.get('/', (req, res) => {
-    res.json('OK');
+    res.json({ message: 'OK' });
     // try {
     //     // Numero de puerto y direccion ip del servidor tcp del convertidor
     //     const port = 20108;
