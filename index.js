@@ -22,22 +22,28 @@ app.get('/', (req, res) => {
             // Si no hay error el servidor acepta la peticion y
             // crea un nuevo socket dedicado para nosotros
             res.json({ msg: 'TCP Conexión establecida con el servidor.' });
+            
+            // El cliente puede recibir data del servidor y leer desde el socket
+            client.on('data', function(weight) {
+                res.json({ msg: `Data recibida desde el servidor: ${weight.toString()}.` });
+
+                // Solicito el final de la petición después de recibir los datos
+                client.end();
+            });
+
+            client.on('end', function() {
+                res.json({ msg: 'Solicito el final de la conexión'});
+            });
+
+            client.on('error', function(err) {
+                console.log(`Error al establecer la conexión: ${err}`);
+            });
         });
 
-        // El cliente puede recibir data del servidor y leer desde el socket
-        client.on('data', function(weight) {
-            res.json({ msg: `Data recibida desde el servidor: ${weight.toString()}.` });
 
-            // Solicito el final de la petición después de recibir los datos
-            client.end();
-        });
-
-        client.on('end', function() {
-            res.json({ msg: 'Solicito el final de la conexión'});
-        });
     }
     catch (e) {
-        res.json({ msg: 'Error '});
+        res.json({ msg: `${ e }` });
     }
 
 });
