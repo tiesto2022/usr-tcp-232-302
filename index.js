@@ -1,4 +1,3 @@
-
 const express = require('express');
 const path = require("path");
 const app = express();
@@ -28,10 +27,12 @@ app.get('/', (req, res) => {
             client.on('data', function(weight) {
                 const values = weight.toString().split('=');
                 const peso = values[1].trim();
-                //res.json({ msg: `Data recibida desde el servidor: ${weight.toString()}.` });
-                res.json({ peso });
+
                 // Solicito el final de la petición después de recibir los datos
                 client.end();
+                
+                //res.json({ msg: `Data recibida desde el servidor: ${weight.toString()}.` });
+                res.json({ peso });
             });
 
             client.on('end', function() {
