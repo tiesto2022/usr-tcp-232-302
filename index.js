@@ -13,9 +13,9 @@ app.get('/', (req, res) => {
         const port = 20108;
         const host = '170.0.10.200';
         
-        const os = require( 'os' );
-        const networkInterfaces = os.networkInterfaces( );
-        console.log( networkInterfaces );
+        //const os = require( 'os' );
+        //const networkInterfaces = os.networkInterfaces( );
+        //console.log( networkInterfaces );
 
         // Creo un nuevo cliente TCP
         const client = new Net.Socket();
