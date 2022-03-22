@@ -58,7 +58,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/peso', (req, res) => {
-    console.log(req');
+    console.log('peso');
+    console.log(req.headers);
 });
 
 app.listen(port,  () => {
