@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
         client.on('data', function(weight) {
             const values = weight.toString().split('=');
             const peso = values[1].trim();
-            console.log(weight);
+            console.log({weight});
 
             // Solicito el final de la petición después de recibir los datos
             //client.destroy();
