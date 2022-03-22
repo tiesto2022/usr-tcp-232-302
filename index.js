@@ -54,6 +54,10 @@ app.get('/', (req, res) => {
 
 });
 
+app.post('/peso', (req, res) => {
+    console.log('peso');
+}
+
 app.listen(port,  () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
