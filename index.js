@@ -31,10 +31,10 @@ app.get('/', (req, res) => {
             console.log({weight});
 
             // Solicito el final de la petición después de recibir los datos
-            //client.destroy();
+            client.destroy();
 
             //res.json({ msg: `Data recibida desde el servidor: ${weight.toString()}.` });
-            //res.json({ peso });
+            res.json({ peso });
         });
 
         client.on('close', function() {
