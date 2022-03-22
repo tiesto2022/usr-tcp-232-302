@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
 
 app.post('/peso', (req, res) => {
     console.log('peso');
-    console.log(req);
+    //console.log(req);
 });
 
 app.listen(port,  () => {
