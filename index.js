@@ -8,6 +8,7 @@ const Net = require('net');
 
 app.get('/', (req, res) => {
     console.log('Ingreso a la raiz');
+    console.log(req);
     try {
         // Numero de puerto y direccion ip del servidor tcp del convertidor
         const port = 20108;
