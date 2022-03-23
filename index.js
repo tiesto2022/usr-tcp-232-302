@@ -37,6 +37,7 @@ app.get('/', (req, res) => {
             client.destroy();
 
             //res.json({ msg: `Data recibida desde el servidor: ${weight.toString()}.` });
+            console.log({ peso });
             res.json({ peso });
         });
 
