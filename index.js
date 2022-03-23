@@ -58,7 +58,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/p', (req, res) => {
-    console.log('peso');
+    console.log(req);
 });
 
 
