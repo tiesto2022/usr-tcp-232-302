@@ -62,9 +62,9 @@ app.post('/sendWeight', (req, res) => {
     console.log({req});
 });
 
-app.post('/getWeight', (req, res) => {
-    console.log('peso');
-    //console.log(req);
+app.get('/getWeight', (req, res) => {
+    console.log('getWeight');
+    console.log(req);
 });
 
 app.listen(port,  () => {
