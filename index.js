@@ -62,7 +62,7 @@ app.post('/sendWeight', (req, res) => {
 });
 
 app.get('/p', (req, res) => {
-    console.log('peso');
+    console.log('ppp');
 });
 
 app.get('/sendWeight', (req, res) => {
