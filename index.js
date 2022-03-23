@@ -64,7 +64,7 @@ app.post('/sendWeight', (req, res) => {
 
 app.get('/getWeight', (req, res) => {
     console.log('getWeight');
-    console.log(req);
+    console.log(req.getParameter());
 });
 
 app.listen(port,  () => {
