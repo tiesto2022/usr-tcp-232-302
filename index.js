@@ -57,17 +57,8 @@ app.get('/', (req, res) => {
 
 });
 
-app.post('/sendWeight', (req, res) => {
-    console.log('peso');
-});
-
 app.post('/p', (req, res) => {
-    console.log(req);
-});
-
-app.get('/sendWeight', (req, res) => {
-    console.log('get sendWeight');
-    console.log(req);;      
+    console.log('peso');
 });
 
 
