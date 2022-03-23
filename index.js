@@ -58,14 +58,15 @@ app.get('/', (req, res) => {
 });
 
 app.post('/sendWeight', (req, res) => {
-    console.log('sendWeight');
+    console.log('semd sendWeight');
     console.log(req);;      
 });
 
-app.get('/getWeight', (req, res) => {
-    console.log('getWeight');
-    console.log(req.getParameter());
+app.get('/sendWeight', (req, res) => {
+    console.log('get sendWeight');
+    console.log(req);;      
 });
+
 
 app.listen(port,  () => {
     console.log(`Example app listening at http://localhost:${port}`);
