@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/weight', (req, res) => {
-    console.log({req, res });
+    console.log('ok');
 });
 
 
