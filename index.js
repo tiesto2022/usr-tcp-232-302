@@ -73,8 +73,8 @@ app.post('/weight', (req, res) => {
     req.socket.on('data',function(d){
      console.log('Pesando....');
      console.log(d.toString());
-         req.socket.on('pause', (error) => {
-          console.log("connection paused");
+         req.socket.on('end', (error) => {
+          console.log("connection end");
          });
     });
     
