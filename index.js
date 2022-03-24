@@ -73,12 +73,12 @@ app.post('/weight', (req, res) => {
     req.socket.on('data',function(d){
      console.log('Server is listening!');
      console.log(d.toString());
-        req.socket.close();
+         req.socket.on('close', (error) => {
+          console.log("connection closed");
+         });
     });
     
-     req.socket.on('close', (error) => {
-      console.log("connection closed");
-     });
+ 
 });
 
 
