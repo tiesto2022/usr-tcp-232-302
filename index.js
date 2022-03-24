@@ -72,7 +72,7 @@ app.post('/weight', (req, res) => {
     console.log('ok');
     req.socket.on('data',function(d){
      console.log('Server is listening!');
-     console.log(d);
+     console.log(d.toString());
     });
 });
 
