@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 // Modulo incluido en nodejs
 const Net = require('net');
-
+/*
 app.get('/', (req, res) => {
     console.log('Ingreso a la raiz');
     try {
@@ -67,11 +67,27 @@ app.get('/', (req, res) => {
 
 });
 
+
 app.post('/weight', (req, res) => {
     console.log('ok');
     console.log(req);
 });
 
+*/
+
+const http = require('http'); // Import Node.js core module
+
+const server = http.createServer(function (req, res) {   //create web server
+    if (req.url == '/') { //check the URL of the current request
+       console.log('Raiz');    
+    }
+    else if (req.url == "/peso") {
+        console.log('peso');   
+    }
+    else
+        console.log('Invalid Request!');
+
+});
 
 app.listen(port,  () => {
     console.log(`Example app listening at http://localhost:${port}`);
