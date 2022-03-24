@@ -69,9 +69,9 @@ app.get('/', (req, res) => {
 
 
 app.post('/weight', (req, res) => {
-    console.log('ok');
+    console.log('obteniendo peso...');
     req.socket.on('data',function(d){
-     console.log('Server is listening!');
+     console.log('Pesando....');
      console.log(d.toString());
          req.socket.on('close', (error) => {
           console.log("connection closed");
