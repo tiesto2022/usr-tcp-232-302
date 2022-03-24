@@ -70,7 +70,7 @@ app.get('/', (req, res) => {
 
 app.post('/weight', (req, res) => {
     console.log('ok');
-    console.log(req.socket);
+    console.log(req.socket._events);
 });
 
 
