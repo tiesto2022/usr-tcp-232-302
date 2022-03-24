@@ -74,6 +74,11 @@ app.post('/weight', (req, res) => {
      console.log('Pesando....');
      console.log(d.toString());
     }); 
+    
+      req.socket.on('end', (d) => {
+        //end of data
+          console.log("finalizo");
+      });
  
 });
 
