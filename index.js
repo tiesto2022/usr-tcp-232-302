@@ -77,12 +77,12 @@ app.post('/weight', (req, res) => {
     
       req.socket.on('pause', (d) => {
         //end of data
-          console.log("pausado");
+          console.log("pausado",d);
       });
     
       req.socket.on('end', (d) => {
         //end of data
-          console.log("finalizo");
+          console.log("finalizo",d);
       });
  
 });
