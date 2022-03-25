@@ -84,7 +84,7 @@ app.post('/weight', async (req, res) => {
     
 });
 
-obtenerPesoIndicador(peticion) {
+function obtenerPesoIndicador(peticion) {
     return new Promise((resolve, reject) => {
         // Apertura del puerto
         let peso = 0;
