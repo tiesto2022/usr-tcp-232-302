@@ -71,7 +71,7 @@ app.get('/', (req, res) => {
 app.post('/weight', async (req, res) => {
     console.log('obteniendo peso...');  
     const promesa = obtenerPesoIndicador(req);
-    console.log(promesa);
+    console.log({promesa});
     
    
     /*req.socket.on('data',function(d){
@@ -88,7 +88,11 @@ function obtenerPesoIndicador(peticion) {
     return new Promise((resolve, reject) => {
         // Apertura del puerto
         let peso = 0;
-        resolve(peticion);
+        peticion.socket.on('data',function(d){
+         const values = d.toString().split('=');
+         const peso = values[1].trim();
+         resolve(peso);
+        });         
     });
  }
 
