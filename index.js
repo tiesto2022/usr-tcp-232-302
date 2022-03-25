@@ -75,15 +75,11 @@ app.post('/weight', (req, res) => {
      console.log('Pesando....');
      const values = d.toString().split('=');
      const peso = values[1].trim();
-     console.log({ peso } ); 
-        req.socket.on('close', function() {
-          console.log('Solicito el final de la conexión');
-        });
-       
+     console.log({ peso } );       
     });   
     
 
-    res.status(200).end();
+    //res.status(200).end();
 });
 
 
