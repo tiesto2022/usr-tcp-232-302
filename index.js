@@ -72,10 +72,10 @@ app.post('/weight', (req, res) => {
     console.log('obteniendo peso...');
    
     req.socket.on('data',function(d){
-     console.log('Pesando....');
-     const values = d.toString().split('=');
-     const peso = values[1].trim();
-     console.log({ peso } );            
+     console.log('Pesando....', d);
+     //const values = d.toString().split('=');
+     //const peso = values[1].trim();
+     //console.log({ peso } );            
      //res.end();
     });   
     
