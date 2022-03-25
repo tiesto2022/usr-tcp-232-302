@@ -76,9 +76,9 @@ app.post('/weight', (req, res) => {
      const peso = values[1].trim();
      console.log({ peso } );
      
-     req.socket.on('end', (d) => {
+     req.socket.on('end', () => {
         //end of data
-          console.log("finalizo",d);
+          console.log("finalizo");
       });
      res.json(null);
     }); 
