@@ -84,6 +84,7 @@ app.post('/weight', (req, res) => {
         //end of data
           console.log("finalizo",d);
       });
+    res.json(null);
  
 });
 
