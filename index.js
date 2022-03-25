@@ -68,18 +68,29 @@ app.get('/', (req, res) => {
 });
 
 
-app.post('/weight', (req, res) => {
-    console.log('obteniendo peso...');
+app.post('/weight', async (req, res) => {
+    console.log('obteniendo peso...');  
+    const promesa = obtenerPesoIndicador(req);
+    console.log(promesa);
+    
    
-    req.socket.on('data',function(d){
+    /*req.socket.on('data',function(d){
      const values = d.toString().split('=');
      const peso = values[1].trim();
      console.log('Pesando....', peso);
      //console.log({ peso } );            
      //res.end();
-    });   
+    });   */
     
 });
+
+obtenerPesoIndicador(peticion) {
+    return new Promise((resolve, reject) => {
+        // Apertura del puerto
+        let peso = 0;
+        resolve(peticion);
+    });
+ }
 
 
 app.listen(port,  () => {
