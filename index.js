@@ -70,9 +70,9 @@ app.get('/', (req, res) => {
 
 app.post('/weight', async (req, res) => {
     console.log('obteniendo peso...');  
-    const promesa = await obtenerPesoIndicador(req);
-    console.log({promesa});
-    
+    const promesa = obtenerPesoIndicador(req).then((d)={
+        console.log(d);
+    });   
    
     /*req.socket.on('data',function(d){
      const values = d.toString().split('=');
