@@ -78,7 +78,7 @@ app.post('/weight', (req, res) => {
      console.log({ peso } );      
     });   
     
-    req.socket.on('end', () => {
+    req.socket.on('close', () => {
         console.log('Conexion finalizada');
     });
 
