@@ -70,13 +70,14 @@ app.get('/', (req, res) => {
 
 app.post('/weight', (req, res) => {
     console.log('obteniendo peso...');
+   
     req.socket.on('data',function(d){
      console.log('Pesando....');
      const values = d.toString().split('=');
      const peso = values[1].trim();
-     console.log({ peso } );     
-    }); 
-    res.end();        
+     console.log({ peso } ); 
+    res.end();      
+    });       
 });
 
 
