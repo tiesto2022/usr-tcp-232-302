@@ -91,7 +91,6 @@ function obtenerPesoIndicador(peticion) {
         peticion.socket.on('data',function(d){
          const values = d.toString().split('=');
          const peso = values[1].trim();
-            console.log('entro en la promesa');
          resolve(peso);
         });         
     });
