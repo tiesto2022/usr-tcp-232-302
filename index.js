@@ -76,7 +76,7 @@ app.post('/weight', (req, res) => {
      const values = d.toString().split('=');
      const peso = values[1].trim();
      console.log({ peso } );            
-     res.end();
+     //res.end();
     });   
     
 });
