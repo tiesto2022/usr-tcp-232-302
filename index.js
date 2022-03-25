@@ -75,10 +75,10 @@ app.post('/weight', (req, res) => {
      console.log('Pesando....');
      const values = d.toString().split('=');
      const peso = values[1].trim();
-     console.log({ peso } );      
+     console.log({ peso } );            
+     res.end();
     });   
     
-    res.end();
 });
 
 
