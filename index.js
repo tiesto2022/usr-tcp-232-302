@@ -66,12 +66,13 @@ app.get('/', (req, res) => {
 
 
 app.post('/weight', async (req, res) => {    
-    const promesa = obtenerPesoIndicador(req).then((d)=>{
+    console.log('Pesando...");
+    /*const promesa = obtenerPesoIndicador(req).then((d)=>{
         console.log('obteniendo peso...'); 
         console.log(d); 
     });   
    
-    /*req.socket.on('data',function(d){
+    req.socket.on('data',function(d){
      const values = d.toString().split('=');
      const peso = values[1].trim();
      console.log('Pesando....', peso);
