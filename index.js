@@ -68,7 +68,7 @@ app.get('/', (req, res) => {
 app.post('/weight', async (req, res, next) => {
     console.log("OK");
     const promesa = await obtenerPesoIndicador(req);
-    console.log(req);
+    console.log(promesa);
     res.end();
     /*   
    
