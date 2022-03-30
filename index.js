@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -71,6 +71,9 @@ app.post('/weight', async (req, res, next) => {
      const values = d.toString().split('=');
      const peso = values[1].trim();
      console.log('....', peso);
+    });
+    
+    
     /*   
    
     req.socket.on('data',function(d){
