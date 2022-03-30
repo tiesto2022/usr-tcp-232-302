@@ -69,7 +69,7 @@ app.post('/weight', async (req, res, next) => {
     
     req.socket.on('connect',function(){ 
         // Send ehlo event right after connect:
-        socket.emit('ehlo', data);
+        console.log("Conectando...");
     });
         
     
