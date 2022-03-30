@@ -1,16 +1,13 @@
 const express = require('express');
-const timeout = require('connect-timeout')
 const path = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(timeout('40s'))
 
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
 
 // Modulo incluido en nodejs
 const Net = require('net');
@@ -68,10 +65,10 @@ app.get('/', (req, res) => {
 });
 
 
-app.post('/weight', async (req, res) => {
-    console.log('obteniendo peso...');  
+app.post('/weight', async (req, res) => {    
     const promesa = obtenerPesoIndicador(req).then((d)=>{
-        console.log(d);
+        console.log('obteniendo peso...'); 
+        console.log(d); 
     });   
    
     /*req.socket.on('data',function(d){
