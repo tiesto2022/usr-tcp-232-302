@@ -65,14 +65,8 @@ app.get('/', (req, res) => {
 });
 
 
-app.post('/weight', async (req, res, next) => {    
-    
-    req.socket.on('connect',function(){ 
-        // Send ehlo event right after connect:
-        console.log("Conectando...");
-    });
-        
-    
+app.post('/weight', async (req, res, next) => {
+    console.log(req.socket);
     /*   
    
     req.socket.on('data',function(d){
