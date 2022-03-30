@@ -66,13 +66,12 @@ app.get('/', (req, res) => {
 
 
 app.post('/weight', async (req, res, next) => {    
-    console.log("Pesando...");
-    req.socket.on('data',function(d){
-     const values = d.toString().split('=');
-     const peso = values[1].trim();
-     console.log('....', peso);
-    });
     
+    req.socket.on('connect',function(){ 
+        // Send ehlo event right after connect:
+        socket.emit('ehlo', data);
+    });
+        
     
     /*   
    
