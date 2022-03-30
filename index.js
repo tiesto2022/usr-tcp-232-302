@@ -65,11 +65,11 @@ app.get('/', (req, res) => {
 });
 
 
-app.post('/weight', async (req, res) => {    
+app.post('/weight', async (req, res, next) => {    
     console.log("Pesando...");
     const promesa = await obtenerPesoIndicador(req);
     console.log(promesa);
-    req.end();
+    next;
     /*   
    
     req.socket.on('data',function(d){
