@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
 
 
 app.post('/weight', async (req, res, next) => {
-    console.log(req.socket);
+    console.log("OK");
     /*   
    
     req.socket.on('data',function(d){
