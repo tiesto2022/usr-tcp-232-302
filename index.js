@@ -67,11 +67,8 @@ app.get('/', (req, res) => {
 
 app.post('/weight', async (req, res, next) => {
     console.log("OK");
-    req.socket.on('data',function(d){
-     const values = d.toString().split('=');
-     const peso = values[1].trim();
-     console.log({peso});
-    });
+    const promesa = await obtenerPesoIndicador(req);
+    console.log(req);
     res.end();
     /*   
    
