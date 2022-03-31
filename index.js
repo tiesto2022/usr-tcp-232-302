@@ -14,25 +14,16 @@ const Net = require('net');
 
 app.post('/weight', async (req, res, next) => {
     console.log("OK");
-    req.on('data', (chunk) => {
-          console.log(`BODY: ${chunk}`);
+    console.time("Peticion")
+    req.on('data', (peso) => {
+          console.log(`{ peso }`);
         });
         req.on('end', () => {
-          console.log('No more data in response.');
+          console.log('No hay más data en la respuesta.');
         });
-    res.status(200).end();
-    /*   
-   
-    req.socket.on('data',function(d){
-     const values = d.toString().split('=');
-     const peso = values[1].trim();
-     console.log('Pesando....', peso);
-     //console.log({ peso } );            
-     //res.end();
-    });   */
-    
+    res.status(200).end();    
 });
 
 app.listen(port,  () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Servidor corriendo en http://localhost:${port}`);
 });
