@@ -34,7 +34,7 @@ app.post('/weight', async (req, res, next) => {
 app.get('/getPeso', async (req, res, next) => {
     let peso = 0;
     if(capturarPeso.length != 0) {
-        peso = capturarPeso;
+        peso = await filtrarvalorPeso(capturarPeso);
         error = false;
     }
     else {
@@ -48,3 +48,15 @@ app.get('/getPeso', async (req, res, next) => {
 app.listen(port,  () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });
+
+async filtrarvalorPeso(peso) { 
+    return new Promise((resolve, reject) => {
+        // Apertura del puerto       
+        const values = peso.toString().split('=');
+        const peso = values[0].trim(); 
+        resolve(peso);
+    });
+}
+
+
+
