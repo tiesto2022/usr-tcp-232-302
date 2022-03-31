@@ -17,12 +17,12 @@ const Net = require('net');
 app.post('/weight', async (req, res, next) => {
     req.on('data', (peso) => {
         console.log(`BODY: ${peso}`);
-        capturarPeso.push(peso.toString());
+        capturarPeso.push(peso.toString());        
+    capturarPeso = [] // quitar
     });
     req.on('end', () => {
         console.log('No hay mas data...');
     });
-    capturarPeso = []
     res.status(200).end();    
 });
 
