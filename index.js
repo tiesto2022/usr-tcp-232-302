@@ -14,6 +14,12 @@ const Net = require('net');
 
 app.post('/weight', async (req, res, next) => {
     console.log("OK");
+    res.on('data', (chunk) => {
+          console.log(`BODY: ${chunk}`);
+        });
+        res.on('end', () => {
+          console.log('No more data in response.');
+        });
     res.status(200).end();
     /*   
    
