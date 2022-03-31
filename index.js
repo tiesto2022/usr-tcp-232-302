@@ -52,7 +52,7 @@ app.listen(port,  () => {
 filtrarvalorPeso = async (p) => { 
     return new Promise((resolve, reject) => {
         // Apertura del puerto       
-        const values = p.split('=');
+        const values = p.toString().split('=');
         const pesoFiltrado = values[1].trim(); 
         resolve(pesoFiltrado);
     });
