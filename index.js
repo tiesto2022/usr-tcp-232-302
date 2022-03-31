@@ -13,13 +13,12 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 const Net = require('net');
 
 app.post('/weight', async (req, res, next) => {
-    console.log("OK");
-    res.on('data', (chunk) => {
-          console.log(`BODY: ${chunk}`);
-        });
-        res.on('end', () => {
-          console.log('No more data in response.');
-        });
+    req.on('data', (chunk) => {
+        console.log(`BODY: ${chunk}`);
+    });
+    req.on('end', () => {
+        console.log('No hay mas data...');
+    });
     res.status(200).end();    
 });
 
