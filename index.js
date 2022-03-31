@@ -35,9 +35,9 @@ app.get('/getPeso', async (req, res, next) => {
     if(capturarPeso.length != 0) {
         const peso = capturarPeso;
         capturarPeso = [];
-        res.status(200).json({error: false, peso });
+        res.status(200).send({error: false, peso });
     }
-    res.status(200).json({error: true, peso: 0 }); 
+    res.status(200).send({error: true, peso: 0 }); 
         
 });
 
