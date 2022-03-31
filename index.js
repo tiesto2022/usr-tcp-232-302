@@ -16,7 +16,7 @@ app.post('/weight', async (req, res, next) => {
     console.log("OK");
     console.time("Peticion")
     req.on('data', (peso) => {
-          console.log({ peso });
+          console.log({ peso.toString() });
         });
         req.on('end', () => {
           console.log('No hay más data en la respuesta.');
