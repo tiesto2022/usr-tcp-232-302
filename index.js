@@ -14,13 +14,11 @@ const Net = require('net');
 
 app.post('/weight', async (req, res, next) => {
     console.log("OK");
-    req.on('data', (pesoEnviado) => {
-        const values = pesoEnviado.toString().split('=');
-        const pesoRecibido = values[1].trim();
-          console.log({ pesoRecibido });
+    res.on('data', (chunk) => {
+          console.log(`BODY: ${chunk}`);
         });
-        req.on('end', () => {
-          console.log('No hay más data en la respuesta.');
+        res.on('end', () => {
+          console.log('No more data in response.');
         });
     res.status(200).end();    
 });
