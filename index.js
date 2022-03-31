@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-let capturarPeso = [];
+let capturarPeso = [], error = false;
 
 // Modulo incluido en nodejs
 const Net = require('net');
@@ -32,12 +32,16 @@ app.post('/weight', async (req, res, next) => {
 
 
 app.get('/getPeso', async (req, res, next) => {
+    let peso = 0;
     if(capturarPeso.length != 0) {
-        const peso = capturarPeso;
-        capturarPeso = [];
-        res.status(200).send({error: false, peso });
+        peso = capturarPeso;
+        error = false;
     }
-    res.status(200).send({error: true, peso: 0 }); 
+    else {
+        error = true;
+    }
+    capturarPeso = [];
+    res.status(200).send({error, peso }); 
         
 });
 
