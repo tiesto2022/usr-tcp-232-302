@@ -17,7 +17,7 @@ app.post('/weight', async (req, res, next) => {
     req.on('data', (pesoEnviado) => {
         const values = pesoEnviado.toString().split('=');
         const pesoRecibido = values[1].trim();
-          console.log({ pesoRecibido.toString() });
+          console.log({ pesoRecibido });
         });
         req.on('end', () => {
           console.log('No hay más data en la respuesta.');
