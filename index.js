@@ -49,12 +49,12 @@ app.listen(port,  () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });
 
-filtrarvalorPeso = async (peso) => { 
+filtrarvalorPeso = async (p) => { 
     return new Promise((resolve, reject) => {
         // Apertura del puerto       
-        const values = peso.toString().split('=');
-        const peso = values[0].trim(); 
-        resolve(peso);
+        const values = p.toString().split('=');
+        const pesoFiltrado = values[0].trim(); 
+        resolve(pesoFiltrado);
     });
 }
 
