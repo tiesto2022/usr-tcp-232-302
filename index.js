@@ -14,14 +14,14 @@ const Net = require('net');
 
 app.post('/weight', async (req, res, next) => {
     console.log("OK");
-    console.time("Peticion")
-    req.on('data', (peso) => {
-          console.log({ peso.toString() });
+    req.on('data', (pesoEnviado) => {
+        const values = pesoEnviado.toString().split('=');
+        const pesoRecibido = values[1].trim();
+          console.log({ pesoRecibido.toString() });
         });
         req.on('end', () => {
           console.log('No hay más data en la respuesta.');
         });
-    console.timeEnd();
     res.status(200).end();    
 });
 
