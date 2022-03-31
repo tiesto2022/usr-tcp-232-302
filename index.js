@@ -21,6 +21,7 @@ app.post('/weight', async (req, res, next) => {
         req.on('end', () => {
           console.log('No hay más data en la respuesta.');
         });
+    console.timeEnd();
     res.status(200).end();    
 });
 
