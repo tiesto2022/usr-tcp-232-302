@@ -35,6 +35,7 @@ app.post('/weight', async (req, res, next) => {
 
 app.get('/getPeso', async (req, res, next) => {
     let peso = 0;
+    console.log(capturarPeso);
     if(capturarPeso.length != 0) {
         peso = await filtrarvalorPeso(capturarPeso);
         error = false;
