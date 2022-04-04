@@ -35,7 +35,7 @@ app.get('/getPeso', async (req, res, next) => {
     let peso = 0;
     if(capturarPeso.length != 0) {
         peso = filtrarvalorPeso(capturarPeso).then((resp) => {
-            peso = p;
+            peso = resp;
         });
         error = false;
     }
