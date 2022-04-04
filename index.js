@@ -15,8 +15,8 @@ let capturarPeso = [], error = false;
 const Net = require('net');
 
 app.post('/weight', async (req, res, next) => {
-    console.log("ok");
-    req.on('data', (peso) => {
+    console.log("ok desde convertidor");
+    /*req.on('data', (peso) => {
         console.log(`${peso}`);
         capturarPeso.push(peso.toString());
     });
@@ -29,7 +29,7 @@ app.post('/weight', async (req, res, next) => {
     req.on('error', () => {
         console.log('Error al recibir datos del convertidor...');
         capturarPeso = [];
-    });
+    });*/
     res.status(200).end();    
 });
 
