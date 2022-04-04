@@ -39,7 +39,7 @@ app.get('/getPeso', async (req, res, next) => {
         error = false;
         // Filtro para obtener solo los valores
         //peso = await filtrarvalorPeso(capturarPeso); 
-        console.log(capturarPes.join());
+        console.log(capturarPeso.join());
     }
     else {
         error = true;       
