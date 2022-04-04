@@ -44,7 +44,7 @@ app.get('/getPeso', async (req, res, next) => {
         error = true;       
     }
     console.log(capturarPeso[capturarPeso.length -1]);
-    res.status(200).send({error, capturarPeso }); 
+    res.status(200).send({error, peso }); 
         
 });
 
