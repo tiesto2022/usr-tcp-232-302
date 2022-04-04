@@ -36,7 +36,8 @@ app.get('/getPeso', async (req, res, next) => {
     let peso = 0;
     console.log(capturarPeso);
     if(capturarPeso.length != 0) {
-        peso = await filtrarvalorPeso(capturarPeso);
+        peso = await filtrarvalorPeso(capturarPeso);        
+        capturarPeso = [];
         error = false;
     }
     else {
@@ -56,7 +57,6 @@ filtrarvalorPeso = async (peso) => {
         // Apertura del puerto       
         const values = peso.toString().split('=');
         const pesoFiltrado = values[1].trim(); 
-        capturarPeso = [];
         resolve(pesoFiltrado);
     });
 }
