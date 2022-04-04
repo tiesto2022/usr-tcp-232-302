@@ -40,9 +40,9 @@ app.get('/getPeso', async (req, res, next) => {
         error = false;
     }
     else {
-        error = true;
+        error = true;       
+        capturarPeso = [];
     }
-    capturarPeso = [];
     res.status(200).send({error, peso }); 
         
 });
