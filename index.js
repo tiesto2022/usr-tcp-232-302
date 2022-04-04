@@ -38,7 +38,7 @@ app.get('/getPeso', async (req, res, next) => {
     if(capturarPeso.length !== 0) {  
         error = false;
         // Filtro para obtener solo los valores
-        //peso = await filtrarvalorPeso(capturarPeso); 
+        peso = await filtrarvalorPeso(capturarPeso); 
     }
     else {
         error = true;       
@@ -55,7 +55,7 @@ app.listen(port,  () => {
 filtrarvalorPeso = async (valorFiltrar) => { 
     return new Promise((resolve, reject) => {
         const data = capturarPeso.join('').replaceAll(' ', '').split('=');
-        let pesoFiltrado = data.filter(elemento => elemento.length == 6);
+        const pesoFiltrado = data.filter(elemento => elemento.length == 6);
         resolve(pesoFiltrado[pesoFiltrado.length - 1]);
     });   
    
