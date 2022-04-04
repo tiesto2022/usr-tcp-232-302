@@ -35,7 +35,6 @@ app.post('/weight', (req, res, next) => {
 
 
 app.get('/getPeso', async (req, res, next) => {
-    capturarPeso = [];
     if(capturarPeso.length !== 0) {  
         error = false;
         // Filtro para obtener solo los valores
