@@ -17,7 +17,7 @@ const Net = require('net');
 app.post('/weight', (req, res, next) => {
     req.on('data', async (_peso) => {
         //Agrego el peso al array segun el flujo
-        console.log(´Peso desde convertidor: ${ _peso }´);
+        console.log(`Peso desde convertidor: ${ _peso }`);
         capturarPeso.push(_peso.toString());
         
         // Filtro para obtener solo los valores
