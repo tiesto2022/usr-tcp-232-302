@@ -14,8 +14,8 @@ let peso = 0, capturarPeso = [], error = false;
 // Modulo incluido en nodejs
 const Net = require('net');
 
-app.post('/weight', async (req, res, next) => {
-    req.on('data', (_peso) => {
+app.post('/weight', (req, res, next) => {
+    req.on('data', async (_peso) => {
         //Agrego el peso al array segun el flujo
         capturarPeso.push(_peso.toString());
         
