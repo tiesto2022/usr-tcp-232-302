@@ -17,7 +17,7 @@ const Net = require('net');
 app.post('/weight', async (req, res, next) => {
     req.on('data', (peso) => {
         console.log(`Peso recibido desde convertidor: ${peso}`);
-        //capturarPeso.push(peso.toString()); 
+        capturarPeso.push(peso.toString()); 
     });
     req.on('end', () => {
         console.log('No hay mas data...');
@@ -34,7 +34,9 @@ app.post('/weight', async (req, res, next) => {
 app.get('/getPeso', async (req, res, next) => {
     let peso = 0;
     if(capturarPeso.length != 0) {
-        peso = await filtrarvalorPeso(capturarPeso);
+        peso = filtrarvalorPeso(capturarPeso).then((resp) => {
+            peso = p;
+        });
         error = false;
     }
     else {
