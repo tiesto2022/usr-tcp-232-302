@@ -17,6 +17,7 @@ const Net = require('net');
 app.post('/weight', async (req, res, next) => {
     req.on('data', (_peso) => {
         //console.log(`${_peso}`);
+        //Agrego el peso al array segun el flujo
         capturarPeso.push(_peso.toString());
     });
                 
@@ -34,6 +35,7 @@ app.post('/weight', async (req, res, next) => {
 
 app.get('/getPeso', async (req, res, next) => {
     if(capturarPeso.length != 0) {
+        // Filtro para obtener solo los valores
         peso = await filtrarvalorPeso(capturarPeso);        
         capturarPeso = [];
         error = false;
@@ -52,8 +54,9 @@ app.listen(port,  () => {
 
 filtrarvalorPeso = async (valorFiltrar) => { 
     return new Promise((resolve, reject) => {
-        // Apertura del puerto       
+        // Divido el array por los elementos que tengan =      
         const values = valorFiltrar.toString().split('=');
+        // Obtengo el valor de la posicion 1, que tiene el valor pesado
         const pesoFiltrado = values[1].trim(); 
         resolve(pesoFiltrado);
     });
