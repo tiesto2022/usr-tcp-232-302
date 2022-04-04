@@ -17,10 +17,11 @@ const Net = require('net');
 app.post('/weight', async (req, res, next) => {
     req.on('data', (peso) => {
         console.log(`Peso recibido desde convertidor: ${peso}`);
-        capturarPeso.push(peso.toString()); 
-    });
+        capturarPeso.push(peso.toString());
+        
     req.on('end', () => {
         console.log('No hay mas data...');
+    });
     });
     
     req.on('error', () => {
