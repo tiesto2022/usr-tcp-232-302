@@ -16,7 +16,6 @@ const Net = require('net');
 
 app.post('/weight', async (req, res, next) => {
     req.on('data', (_peso) => {
-        //console.log(`${_peso}`);
         //Agrego el peso al array segun el flujo
         capturarPeso.push(_peso.toString());
     });
@@ -34,7 +33,7 @@ app.post('/weight', async (req, res, next) => {
 
 
 app.get('/getPeso', async (req, res, next) => {
-    if(capturarPeso.length != 0) {
+    if(capturarPeso.length !== 0) {
         // Filtro para obtener solo los valores
         peso = await filtrarvalorPeso(capturarPeso);        
         capturarPeso = [];
