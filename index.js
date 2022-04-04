@@ -19,6 +19,7 @@ app.post('/weight', (req, res, next) => {
         //Agrego el peso al array segun el flujo
         console.log(`Peso desde convertidor: ${ _peso }`);
         capturarPeso.push(_peso.toString());
+        console.log(capturarPeso);
         
         // Filtro para obtener solo los valores
         peso = await filtrarvalorPeso(capturarPeso);  
