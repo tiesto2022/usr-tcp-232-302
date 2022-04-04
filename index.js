@@ -18,10 +18,11 @@ app.post('/weight', async (req, res, next) => {
     req.on('data', (peso) => {
         console.log(`Peso recibido desde convertidor: ${peso}`);
         capturarPeso.push(peso.toString());
-        
-    req.on('end', () => {
-        console.log('No hay mas data...');
     });
+                
+    req.on('end', () => {
+        //console.log('No hay mas data...');
+        capturarPeso = [];
     });
     
     req.on('error', () => {
@@ -34,12 +35,12 @@ app.post('/weight', async (req, res, next) => {
 
 app.get('/getPeso', async (req, res, next) => {
     let peso = 0;
-    if(capturarPeso.length == 0) {
-        error = true;
-    }
-    else {
+    if(capturarPeso.length != 0) {
         peso = await filtrarvalorPeso(capturarPeso);
         error = false;
+    }
+    else {
+        error = true;
     }
     capturarPeso = [];
     res.status(200).send({error, peso }); 
