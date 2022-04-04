@@ -43,9 +43,7 @@ app.get('/getPeso', async (req, res, next) => {
     else {
         error = true;       
     }
-    
-    res.status(200).send({error, peso, data, filtrados }); 
-        
+    res.status(200).send({error, peso });         
 });
 
 app.listen(port,  () => {
