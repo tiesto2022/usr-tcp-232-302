@@ -21,7 +21,7 @@ app.post('/weight', async (req, res, next) => {
     });
                 
     req.on('end', () => {
-        //console.log('No hay mas data...');
+        console.log('No hay mas data...');
         capturarPeso = [];
     });
     
