@@ -16,7 +16,7 @@ const Net = require('net');
 
 app.post('/weight', async (req, res, next) => {
     req.on('data', (peso) => {
-        console.log(`${peso}`);
+        //console.log(`${peso}`);
         capturarPeso.push(peso.toString());
     });
                 
@@ -56,6 +56,7 @@ filtrarvalorPeso = async (peso) => {
         // Apertura del puerto       
         const values = peso.toString().split('=');
         const pesoFiltrado = values[1].trim(); 
+        capturarPeso = [];
         resolve(pesoFiltrado);
     });
 }
