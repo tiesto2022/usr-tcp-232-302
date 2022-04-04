@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-let peso = 0, capturarPeso, error = false;
+let peso = 0, capturarPeso = [], error = false;
 
 // Modulo incluido en nodejs
 const Net = require('net');
@@ -18,7 +18,7 @@ app.post('/weight', (req, res, next) => {
     req.on('data', async (_peso) => {
         //Agrego el peso al array segun el flujo
         console.log(`Peso desde convertidor: ${ _peso }`);
-        capturarPeso = _peso.toString(); 
+        capturarPeso.push(_peso.toString()); 
     });
                 
     req.on('end', () => {
@@ -35,7 +35,7 @@ app.post('/weight', (req, res, next) => {
 
 
 app.get('/getPeso', async (req, res, next) => {
-    if(capturarPeso.length !== "") {  
+    if(capturarPeso.length !== 0) {  
         error = false;
         // Filtro para obtener solo los valores
         //peso = await filtrarvalorPeso(capturarPeso); 
