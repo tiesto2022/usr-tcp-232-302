@@ -43,12 +43,11 @@ app.get('/getPeso', async (req, res, next) => {
     else {
         error = true;       
     }
-    let data = capturarPeso;
-    let unir = data.join('').replaceAll(' ', '');
+    let data = capturarPeso.join('').replaceAll(' ', '').split('=');
     
     //let filtrados = dividir.filter(elemento => elemento.length == 6);
     
-    res.status(200).send({error, peso, data, unir }); 
+    res.status(200).send({error, peso, data }); 
         
 });
 
