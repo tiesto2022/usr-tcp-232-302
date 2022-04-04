@@ -43,8 +43,6 @@ app.get('/getPeso', async (req, res, next) => {
     else {
         error = true;       
     }
-    const data = capturarPeso.join('').replaceAll(' ', '').split('=');
-    let filtrados = data.filter(elemento => elemento.length == 6);
     
     res.status(200).send({error, peso, data, filtrados }); 
         
@@ -56,13 +54,12 @@ app.listen(port,  () => {
 
 filtrarvalorPeso = async (valorFiltrar) => { 
     return new Promise((resolve, reject) => {
-        // Divido el array por los elementos que tengan =      
-        const values = valorFiltrar.split('=');
-        // Obtengo el valor de la posicion 1, que tiene el valor pesado
-        const pesoFiltrado = values[1].trim(); 
-       //capturarPeso = [];
-        resolve(pesoFiltrado);
-    });
+        const data = capturarPeso.join('').replaceAll(' ', '').split('=');
+        let pesoFiltrado = data.filter(elemento => elemento.length == 6);
+        resolve(pesoFiltrado[pesoFiltrado.length - 1]);
+    });   
+   
+    
 }
 
 
